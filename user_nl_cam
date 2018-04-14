@@ -1,0 +1,71 @@
+! Users should add all user specific namelist changes below in the form of 
+! namelist_var = new_namelist_value 
+ 
+
+bnd_topo = '/global/cscratch1/sd/meinaw/CESM_SE_files/maps/AR_calif_30_x8/topo/topo_AR_calif_30_x8_smooth.nc'
+ ncdata = '/global/cscratch1/sd/meinaw/CESM_SE_files/maps/AR_calif_30_x8/inic/CAM/inic_AR_calif_30_x8_spunup.nc'
+
+ nhtfrq=0,-3,-6,-3
+ mfilt=1,8,4,8
+ fincl1='Z3:I','PS:I','PHIS:I','U10:I','U:I','V:I','TKE:I','Q:I','PRECT:I','PRECC:I','PRECL:I','T:I','TS:I','PSL:I','QC:I','CLOUD:I','ICWMR:I','QT:I','PBLH:I','LHFLX:I','SHFLX:I','SST:I'
+ fincl2='Z3:I','PS:I','PHIS:I','U10:I','U:I','V:I','TKE:I','Q:I','PRECT:I','PRECC:I','PRECL:I','T:I','TS:I','PSL:I','QC:I','CLOUD:I','ICWMR:I','QT:I','PBLH:I','LHFLX:I','SHFLX:I','SST:I'
+ fincl3='FSNS:A','U:A','V:A','Q:A','OMEGA:A','TS:A'
+ fincl4='TREFHT:A','QREFHT:A','RHREFHT:A','U10:A','PS:A'
+
+/
+&ctl_nl
+ dtime=450
+ se_nsplit=4
+ se_rsplit=5
+ se_tstep_type=5
+ se_ne=0
+ se_ftype=0
+ se_nu=1.0000e13
+ se_nu_div=2.5000e13
+ se_nu_p = 1.00e13
+ se_nu_q = 1.00e13
+ se_nu_top = 2.0e5
+ se_hypervis_subcycle=4
+ se_fine_ne=120
+ se_hypervis_power=3.322
+ se_max_hypervis_courant=1.9
+ se_mesh_file = "/global/cscratch1/sd/meinaw/CESM_SE_files/maps/AR_calif_30_x8/grid/grid.g"
+/
+
+
+
+
+ext_frc_specifier               = 'SO2 -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_so2_elev_1850-2020_c20120308.nc',
+         'bc_a1       -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_bc_elev_1850-2020_c20120308.nc',
+         'num_a1      -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_num_a1_elev_1850-2020_c20120308.nc',
+         'num_a2      -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_num_a2_elev_1850-2020_c20120308.nc',
+         'pom_a1      -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_oc_elev_1850-2020_c20120308.nc',
+         'so4_a1      -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_so4_a1_elev_1850-2020_c20120308.nc',
+         'so4_a2      -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_so4_a2_elev_1850-2020_c20120308.nc'
+
+srf_emis_specifier             = 'DMS -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/aerocom_mam3_dms_surf_1849-2100_c111017.nc',
+         'SO2       -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_so2_surf_1850-2020_c20120308.nc',
+         'SOAG      -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_soag_1.5_surf_2000-2100_c20111116.nc',
+         'bc_a1     -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_bc_surf_1850-2020_c20120308.nc',
+         'num_a1    -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_num_a1_surf_1850-2020_c20120308.nc',
+         'num_a2    -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_num_a2_surf_1850-2020_c20120308.nc',
+         'pom_a1    -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_oc_surf_1850-2020_c20120308.nc',
+         'so4_a1    -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_so4_a1_surf_1850-2020_c20120308.nc',
+         'so4_a2    -> /global/cscratch1/sd/meinaw/CESM_SE_files/RCP/RCP4.5/RCP45_mam3_so4_a2_surf_1850-2020_c20120308.nc'
+
+tracer_cnst_datapath            = '/global/cscratch1/sd/meinaw/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/oxid'
+tracer_cnst_file                = 'oxid_1.9x2.5_L26_1850-2015_rcp45_c101108.nc'
+
+bndtvghg                = '/global/cscratch1/sd/meinaw/cesmdata/cseg/inputdata/atm/cam/ggas/ghg_rcp45_1765-2500_c100405.nc'
+
+prescribed_ozone_datapath='/global/cscratch1/sd/meinaw/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/oxid'
+prescribed_ozone_file    ='oxid_1.9x2.5_L26_1850-2015_rcp45_c101108.nc'
+
+solar_data_file         = '/global/cscratch1/sd/meinaw/cesmdata/cseg/inputdata/atm/cam/solar/spectral_irradiance_Lean_1610-2140_ann_c100408.nc'
+
+prescribed_volcaero_datapath='/global/cscratch1/sd/meinaw/cesmdata/cseg/inputdata/atm/cam/volc/'
+prescribed_volcaero_file='CCSM4_volcanic_1850-3009_prototype1.nc'
+
+
+
+
